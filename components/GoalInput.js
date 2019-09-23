@@ -3,7 +3,8 @@ import {
   View,
   Button,
   TextInput,
-  StyleSheet
+  StyleSheet,
+  Modal
 } from 'react-native';
 
 
@@ -15,6 +16,7 @@ const GoalInput = props => {
     setEnteredGoal(enteredText);
   }
   return (
+    <Modal visible={props.visible} animationType="slide">
     <View style={styles.inputContainter}>
       <TextInput
         placeholder="Course goal"
@@ -24,6 +26,7 @@ const GoalInput = props => {
       />
         <Button title ='Add' onPress={() => props.onAddGoal(enteredGoal)}/>
     </View>
+    </Modal>
   );
 };
 const styles = StyleSheet.create({
